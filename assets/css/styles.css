@@ -9,21 +9,22 @@
   --color--black: #000000;
   --color--gray: #7a8c97;
 
-  --background--color: var(--color--white);
-  --radial: #e4e9f1;
+  --background--color: #e4e9f1;
+  --background--secondary: var(--color--white);
   --text--color: var(--color--black);
-  --color--primary: #0169df;
-  --color--secondary: #362edc;
+  --text--color--opposite: var(--color--white);
+  --color--primary: #fbb13c;
+  --color--secondary: #ff9a1f;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background--color: #15283b;
     --text--color: var(--color--white);
-    --radial: #2d3b4e;
-    --color--primary: #fbb13c;
-    --color--secondary: #ff9a1f;
+    --text--color--opposite: var(--color--black);
+    --background--secondary: #2d3b4e;
   }
+  
 }
 
 @font-face {
@@ -46,6 +47,15 @@ body {
   margin: auto;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lora', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 /* ==========
   Navigation
 ========== */
@@ -56,12 +66,12 @@ nav {
   justify-content: space-between;
 }
 
-.nav__group li {
+.nav__group p {
   list-style: none;
   display: inline-block;
 }
 
-.nav__group li + li {
+.nav__group p + p {
   margin-left: 0.5em;
 }
 
@@ -74,12 +84,76 @@ nav {
   margin-left: 0;
 }
 
+/* ==========
+  Hero Secion
+========== */
+
+.hero {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero h1 {
+  font-size: 3em;
+}
+
+.form {
+  background-color: var(--background--secondary);
+}
+
+.form__group {
+  padding: 1.2em;
+}
+
+.form__group--inline {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-gap: 1em;
+}
+
+.form__group h2 {
+  margin-bottom: 0.5em;
+}
+
+input {
+  background-color: var(--background--secondary);
+  padding: 0.2em;
+  border-bottom: 1px solid var(--text--color);
+  width: 100%;
+  color: var(--text--color);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color--primary);
+}
+
+.form button {
+  font-size: 1.5em;
+  background-color: var(--color--primary);
+  transition: all 0.1s ease-in-out;
+  color: var(--text--color--opposite);
+}
+
+.form button:active {
+  color: var(--text--color);
+}
+
+/* ==========
+  Media Queries
+========== */
+
 @media screen and (max-width: 480px) {
   body {
     font-size: 1em;
   }
 
-  #username {
+  .nav__group .username {
     display: none;
+  }
+
+  .hero {
+    flex-direction: column;
   }
 }
