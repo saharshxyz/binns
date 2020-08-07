@@ -1,7 +1,13 @@
 :root {
+  /* Breakpoints for actual use. Used as a place to referece all the different breakpoints used */
+  --breakpoint--mobile: 480px;
+  --breakpoint--tablet: 768px;
+  --breakpoint--laptop: 1024px;
+  --breakpoint--desktop: 1200px;
+
   --color--white: #ffffff;
   --color--black: #000000;
-  --color-gray: #7a8c97;
+  --color--gray: #7a8c97;
 
   --background--color: var(--color--white);
   --radial: #e4e9f1;
@@ -20,13 +26,11 @@
   }
 }
 
-*,
-::before,
-::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: none;
+@font-face {
+  font-family: 'beyno';
+  src: url('../fonts/beyno/beyno-webfont.woff2') format('woff2'), url('../fonts/beyno/beyno-webfont.woff2') format('woff'), url('../fonts/beyno/BEYNO.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
@@ -40,4 +44,39 @@ body {
 .body__wrapper {
   max-width: 60ch;
   margin: auto;
+}
+
+/* ==========
+  Navigation
+========== */
+
+nav {
+  font-size: 1.4em;
+  font-family: 'Lora', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__group li {
+  display: inline-block;
+}
+
+.nav__group li + li {
+  margin-left: 0.5em;
+}
+
+.logo {
+  font-family: 'beyno', 'Lora', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.username {
+  color: var(--color--gray);
+  margin-left: 0;
+}
+
+@media screen and (max-width: 480px) {
+  /* NOT WORKING */
+  .username {
+    display: none;
+  }
 }
