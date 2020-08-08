@@ -5,24 +5,26 @@
   --breakpoint--laptop: 1024px;
   --breakpoint--desktop: 1200px;
 
+  --radial--size: 0.5px;
+
   --color--white: #ffffff;
   --color--black: #000000;
   --color--gray: #7a8c97;
 
-  --background--color: var(--color--white);
-  --radial: #e4e9f1;
+  --background--color: #e4e9f1;
+  --background--secondary: var(--color--white);
   --text--color: var(--color--black);
-  --color--primary: #0169df;
-  --color--secondary: #362edc;
+  --text--color--opposite: var(--color--white);
+  --color--primary: #ff9a1f;
+  --color--secondary: #fbb13c;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background--color: #15283b;
     --text--color: var(--color--white);
-    --radial: #2d3b4e;
-    --color--primary: #fbb13c;
-    --color--secondary: #ff9a1f;
+    --text--color--opposite: var(--color--black);
+    --background--secondary: #2d3b4e;
   }
 }
 
@@ -38,12 +40,25 @@ body {
   font-family: 'Lato', 'Lora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 1.125em;
   color: var(--text--color);
-  padding: 1em 2em;
+  padding: 1em 1em;
 }
 
 .body__wrapper {
-  max-width: 60ch;
+  max-width: 80ch;
   margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lora', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.italicized {
+  font-style: italic;
 }
 
 /* ==========
@@ -56,12 +71,12 @@ nav {
   justify-content: space-between;
 }
 
-.nav__group li {
+.nav__group p {
   list-style: none;
   display: inline-block;
 }
 
-.nav__group li + li {
+.nav__group p + p {
   margin-left: 0.5em;
 }
 
@@ -74,12 +89,190 @@ nav {
   margin-left: 0;
 }
 
+/* ==========
+  Hero Secion
+========== */
+
+.hero {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--breakpoint--tablet) / 2), 1fr));
+}
+
+.hero h1 {
+  font-size: 3em;
+}
+
+.form {
+  background-color: var(--background--secondary);
+}
+
+.form__group {
+  padding: 1.2em;
+}
+
+.form__group--inline {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-gap: 1em;
+}
+
+.form__group h2 {
+  margin-bottom: 0.5em;
+}
+
+input {
+  background-color: var(--background--secondary);
+  padding: 0.2em;
+  border-bottom: 2px solid var(--text--color);
+  width: 100%;
+  color: var(--text--color);
+  border-radius: 0px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color--primary);
+}
+
+.form button {
+  font-size: 1.5em;
+  background-color: var(--color--primary);
+  transition: all 0.1s ease-in-out;
+  color: var(--text--color);
+}
+
+.form button:active {
+  color: var(--text--color--opposite);
+}
+
+/* ==========
+  Featured Posts
+========== */
+
+.featured {
+  margin: 1em;
+  margin-top: 2.5em;
+  background-image: radial-gradient(var(--color--primary) var(--radial--size), transparent var(--radial--size));
+  background-size: calc(10 * var(--radial--size)) calc(10 * var(--radial--size));
+}
+
+.featured__wrapper {
+  background-color: var(--background--color);
+  transform: translate(20px, -20px);
+
+  padding: 1em;
+}
+
+.featured__posts {
+  margin-top: 1em;
+}
+
+.post__title {
+  color: var(--color--gray);
+}
+
+h2 .fas.fa-bookmark {
+  font-size: 0.8em;
+  margin-right: 0.2em;
+}
+
+h3 {
+  margin-bottom: 0.2em;
+}
+
+.featured__posts .featured__post + .featured__post {
+  margin-top: 1.5em;
+}
+
+.featured__group {
+  display: grid;
+  grid-template-rows: repeat(1fr);
+}
+
+.featured__group:nth-of-type(2) {
+  display: none;
+}
+
+/* ==========
+  Pinned Pages
+========== */
+
+.pinned {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5em 3em;
+  color: var(--color--gray);
+}
+
+/* ==========
+  Horizontal rule design from Ganymede by Mingjie Jiang (https://go.srsh.link/8rLmXU)
+========== */
+
+hr {
+  background:
+    linear-gradient(
+      to left,
+      currentColor calc(50% - 12px),
+      transparent calc(50% - 12px),
+      transparent calc(50% + 12px),
+      currentColor calc(50% + 12px)
+    );
+  background-color: transparent;
+  border: none;
+  height: 0.08rem;
+  overflow: visible;
+  position: relative;
+  color: var(--hint-color);
+  margin: 1.2rem auto;
+}
+
+hr::before,
+hr::after {
+  background: currentColor;
+  content: "";
+  display: block;
+  height: 0.8rem;
+  position: absolute;
+  top: calc(50% - 0.4rem);
+  transform: rotate(22.5deg);
+  width: 0.1rem;
+}
+
+hr::before {
+  left: calc(50% - 0.25rem);
+}
+
+hr::after {
+  right: calc(50% - 0.25rem);
+}
+
+/* ==========
+  Media Queries
+========== */
+
 @media screen and (max-width: 480px) {
   body {
     font-size: 1em;
   }
 
-  #username {
+  .nav__group .username {
     display: none;
   }
+
+  .hero {
+    margin-top: 1em;
+  }
 }
+
+@media screen and (max-width: 768px) {
+  .featured__posts {
+    display: flex;
+  }
+
+  .featured__group:nth-of-type(2) {
+    margin-left: 1em;
+    display: block;
+  }
+}
+
