@@ -76,7 +76,7 @@ hr {
   height: 0.08rem;
   overflow: visible;
   position: relative;
-  color: var(--hint-color);
+  color: var(--color--gray);
   margin: 1.2rem auto;
 }
 
@@ -196,6 +196,10 @@ input:focus {
   border-color: var(--color--primary);
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .form button {
   font-size: 1.5em;
   background-color: var(--color--primary);
@@ -274,11 +278,27 @@ h3 {
   display: flex;
   justify-content: space-between;
   margin: 1.5em 3em;
-  color: var(--color--gray);
+  color: var(--text--color);
 }
 
 @media screen and (max-width: 480px) {
   .pinned {
     margin: 1.5em 1.5em;
   }
+}
+
+/* ==========
+  Tag List
+========== */
+
+.tag-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1.5em 0;
+}
+
+.tag-list p {
+  margin: 0.3em;
+  color: var(--color--gray);
 }
