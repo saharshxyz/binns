@@ -5,7 +5,7 @@
   --breakpoint--laptop: 1024px;
   --breakpoint--desktop: 1200px;
 
-  --radial--size: 0.7px;
+  --radial--size: 0.5px;
 
   --color--white: #ffffff;
   --color--black: #000000;
@@ -195,6 +195,59 @@ h3 {
 }
 
 /* ==========
+  Pinned Pages
+========== */
+
+.pinned {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5em 3em;
+  color: var(--color--gray);
+}
+
+/* ==========
+  Horizontal rule design from Ganymede by Mingjie Jiang (https://go.srsh.link/8rLmXU)
+========== */
+
+hr {
+  background:
+    linear-gradient(
+      to left,
+      currentColor calc(50% - 12px),
+      transparent calc(50% - 12px),
+      transparent calc(50% + 12px),
+      currentColor calc(50% + 12px)
+    );
+  background-color: transparent;
+  border: none;
+  height: 0.08rem;
+  overflow: visible;
+  position: relative;
+  color: var(--hint-color);
+  margin: 1.2rem auto;
+}
+
+hr::before,
+hr::after {
+  background: currentColor;
+  content: "";
+  display: block;
+  height: 0.8rem;
+  position: absolute;
+  top: calc(50% - 0.4rem);
+  transform: rotate(22.5deg);
+  width: 0.1rem;
+}
+
+hr::before {
+  left: calc(50% - 0.25rem);
+}
+
+hr::after {
+  right: calc(50% - 0.25rem);
+}
+
+/* ==========
   Media Queries
 ========== */
 
@@ -222,3 +275,4 @@ h3 {
     display: block;
   }
 }
+
