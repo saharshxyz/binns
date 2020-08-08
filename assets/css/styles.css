@@ -5,6 +5,8 @@
   --breakpoint--laptop: 1024px;
   --breakpoint--desktop: 1200px;
 
+  --radial--size: 0.7px;
+
   --color--white: #ffffff;
   --color--black: #000000;
   --color--gray: #7a8c97;
@@ -13,8 +15,8 @@
   --background--secondary: var(--color--white);
   --text--color: var(--color--black);
   --text--color--opposite: var(--color--white);
-  --color--primary: #fbb13c;
-  --color--secondary: #ff9a1f;
+  --color--primary: #ff9a1f;
+  --color--secondary: #fbb13c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -122,7 +124,7 @@ nav {
 input {
   background-color: var(--background--secondary);
   padding: 0.2em;
-  border-bottom: 1px solid var(--text--color);
+  border-bottom: 2px solid var(--text--color);
   width: 100%;
   color: var(--text--color);
   border-radius: 0px;
@@ -137,11 +139,11 @@ input:focus {
   font-size: 1.5em;
   background-color: var(--color--primary);
   transition: all 0.1s ease-in-out;
-  color: var(--text--color--opposite);
+  color: var(--text--color);
 }
 
 .form button:active {
-  color: var(--text--color);
+  color: var(--text--color--opposite);
 }
 
 /* ==========
@@ -149,9 +151,17 @@ input:focus {
 ========== */
 
 .featured {
-  height: 80%;
   margin: 1em;
   margin-top: 2.5em;
+  background-image: radial-gradient(var(--color--primary) var(--radial--size), transparent var(--radial--size));
+  background-size: calc(10 * var(--radial--size)) calc(10 * var(--radial--size));
+}
+
+.featured__wrapper {
+  background-color: var(--background--color);
+  transform: translate(20px, -20px);
+
+  padding: 1em;
 }
 
 .featured__posts {
