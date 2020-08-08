@@ -35,6 +35,10 @@
   font-style: normal;
 }
 
+/* ==========
+  Basic Styles
+========== */
+
 body {
   background-color: var(--background--color);
   font-family: 'Lato', 'Lora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -59,6 +63,47 @@ h6 {
 
 .italicized {
   font-style: italic;
+}
+
+/* ==========
+  Horizontal rule design from Ganymede by Mingjie Jiang (https://go.srsh.link/8rLmXU)
+========== */
+
+hr {
+  background: linear-gradient(to left, currentColor calc(50% - 12px), transparent calc(50% - 12px), transparent calc(50% + 12px), currentColor calc(50% + 12px));
+  background-color: transparent;
+  border: none;
+  height: 0.08rem;
+  overflow: visible;
+  position: relative;
+  color: var(--hint-color);
+  margin: 1.2rem auto;
+}
+
+hr::before,
+hr::after {
+  background: currentColor;
+  content: '';
+  display: block;
+  height: 0.8rem;
+  position: absolute;
+  top: calc(50% - 0.4rem);
+  transform: rotate(22.5deg);
+  width: 0.1rem;
+}
+
+hr::before {
+  left: calc(50% - 0.25rem);
+}
+
+hr::after {
+  right: calc(50% - 0.25rem);
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 1em;
+  }
 }
 
 /* ==========
@@ -89,6 +134,12 @@ nav {
   margin-left: 0;
 }
 
+@media screen and (max-width: 480px) {
+  .nav__group .username {
+    display: none;
+  }
+}
+
 /* ==========
   Hero Secion
 ========== */
@@ -102,6 +153,16 @@ nav {
 .hero h1 {
   font-size: 3em;
 }
+
+@media screen and (max-width: 480px) {
+  .hero {
+    margin-top: 1em;
+  }
+}
+
+/* ==========
+  Form Section
+========== */
 
 .form {
   background-color: var(--background--secondary);
@@ -194,77 +255,6 @@ h3 {
   display: none;
 }
 
-/* ==========
-  Pinned Pages
-========== */
-
-.pinned {
-  display: flex;
-  justify-content: space-between;
-  margin: 1.5em 3em;
-  color: var(--color--gray);
-}
-
-/* ==========
-  Horizontal rule design from Ganymede by Mingjie Jiang (https://go.srsh.link/8rLmXU)
-========== */
-
-hr {
-  background:
-    linear-gradient(
-      to left,
-      currentColor calc(50% - 12px),
-      transparent calc(50% - 12px),
-      transparent calc(50% + 12px),
-      currentColor calc(50% + 12px)
-    );
-  background-color: transparent;
-  border: none;
-  height: 0.08rem;
-  overflow: visible;
-  position: relative;
-  color: var(--hint-color);
-  margin: 1.2rem auto;
-}
-
-hr::before,
-hr::after {
-  background: currentColor;
-  content: "";
-  display: block;
-  height: 0.8rem;
-  position: absolute;
-  top: calc(50% - 0.4rem);
-  transform: rotate(22.5deg);
-  width: 0.1rem;
-}
-
-hr::before {
-  left: calc(50% - 0.25rem);
-}
-
-hr::after {
-  right: calc(50% - 0.25rem);
-}
-
-/* ==========
-  Media Queries
-========== */
-
-@media screen and (max-width: 480px) {
-  body {
-    font-size: 1em;
-  }
-
-  .nav__group .username {
-    display: none;
-  }
-
-  .hero {
-    margin-top: 1em;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .featured__posts {
     display: flex;
@@ -276,3 +266,19 @@ hr::after {
   }
 }
 
+/* ==========
+  Pinned Pages
+========== */
+
+.pinned {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5em 3em;
+  color: var(--color--gray);
+}
+
+@media screen and (max-width: 480px) {
+  .pinned {
+    margin: 1.5em 1.5em;
+  }
+}
