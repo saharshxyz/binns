@@ -52,11 +52,10 @@ body {
   font-family: 'Lato', 'Lora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 1.125em;
   color: var(--text--color);
-  position: relative;
 }
 
 .body__wrapper {
-  max-width: 65ch;
+  max-width: 80ch;
   margin: auto;
   margin-bottom: 1em;
 }
@@ -64,6 +63,15 @@ body {
 .main__wrapper {
   margin: 1em 1.5em;
   margin-bottom: 0;
+}
+
+.content__wrapper {
+  max-width: 65ch;
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 1.5em;
 }
 
 h1,
@@ -394,9 +402,6 @@ h2 .fas.fa-bookmark {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  position: absolute;
-  bottom: 0;
 }
 
 .footer h1 {
@@ -434,4 +439,3 @@ h2 .fas.fa-bookmark {
 .far.fa-envelope:active {
   color: var(--color--primary);
 }
-]
