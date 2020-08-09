@@ -305,22 +305,24 @@ h2 .fas.fa-bookmark {
 }
 
 .featured__group {
-  display: grid;
-  grid-template-rows: repeat(1fr);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .featured__group:nth-of-type(2) {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 480px) and (max-width: 768px) {
   .featured__posts {
-    display: flex;
+    display: grid;
+    gap: 0.5em;
+    grid-template-columns: 1fr 1fr;
   }
 
   .featured__group:nth-of-type(2) {
-    margin-left: 1em;
-    display: block;
+    display: flex;
   }
 }
 
@@ -362,7 +364,8 @@ h2 .fas.fa-bookmark {
 ========== */
 
 .post-list {
-  max-width: 60ch;
+  max-width: 700px;
+  max-width: 65ch;
   margin: auto;
 }
 
@@ -395,7 +398,6 @@ h2 .fas.fa-bookmark {
   font-size: 2em;
   margin: 0;
   padding: 0;
-  /* color: var(--color--gray); */
 }
 
 .footer i {
