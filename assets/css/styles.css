@@ -71,7 +71,7 @@ body {
 }
 
 h1 {
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 
 h1,
@@ -90,6 +90,10 @@ hr {
 
 p {
   line-height: 1.7;
+}
+
+p {
+  margin-top: 1em;
 }
 
 i {
@@ -161,6 +165,7 @@ hr.fancy-hr::after {
 .header {
   max-width: 80ch;
   margin: auto;
+  margin-bottom: 2em;
 }
 
 nav {
@@ -438,4 +443,32 @@ h2 .fas.fa-bookmark {
 .far.fa-envelope:hover,
 .far.fa-envelope:active {
   color: var(--color--primary);
+}
+
+/* ==========
+  Post Styles
+========== */
+
+.post__info h1 {
+  margin-bottom: 0;
+}
+
+.bold-hr {
+  border-top: 2px solid var(--color--gray);
+}
+
+.post a {
+  color: var(--text--color);
+  transition: all 0.3s ease-in-out;
+
+  background: linear-gradient(to bottom, var(--color--primary) 0%, var(--color--primary) 100%);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 4px;
+}
+
+.post a:hover,
+.post a:active {
+  color: var(--text--color--opposite);
+  background-size: 4px 100%;
 }
