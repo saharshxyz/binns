@@ -5,27 +5,35 @@
   --breakpoint--laptop: 1024px;
   --breakpoint--desktop: 1200px;
 
-  --radial--size: 0.5px;
+  --radial--size: 1.2px;
 
   --color--white: #ffffff;
   --color--black: #000000;
   --color--gray: #7a8c97;
 
   --background--color: #e4e9f1;
-  --background--secondary: var(--color--white);
+  --background--secondary: #fff;
   --text--color: var(--color--black);
   --text--color--opposite: var(--color--white);
-  --color--primary: #ff9a1f;
-  --color--secondary: #fbb13c;
+  --color--primary: #01a7c2;
+  --color--secondary: #086c71;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --radial--size: 0.5px;
+
     --background--color: #15283b;
     --text--color: var(--color--white);
     --text--color--opposite: var(--color--black);
     --background--secondary: #2d3b4e;
+    --color--primary: #ff9a1f;
+    --color--secondary: #fbb13c;
   }
+}
+
+::selection {
+  background: var(--background--secondary);
 }
 
 @font-face {
@@ -87,6 +95,7 @@ a:visited {
 
 a:hover {
   color: var(--color--primary);
+  transition: all 0.1s ease-in-out;
 }
 
 .italicized {
@@ -144,12 +153,11 @@ nav {
   justify-content: space-between;
 }
 
-.nav__group p {
-  list-style: none;
+.nav__group a {
   display: inline-block;
 }
 
-.nav__group p + p {
+.nav__group a + a {
   margin-left: 0.5em;
 }
 
@@ -160,6 +168,32 @@ nav {
 .username {
   color: var(--color--gray);
   margin-left: 0;
+}
+
+.nav__local {
+  position: relative;
+  padding: 0.2em 0.4em;
+  transition: color 0.4s ease-in-out;
+}
+
+.nav__local:hover {
+  color: var(--text--color) !important;
+}
+
+.nav__local::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  max-width: 0;
+  background-color: transparent;
+  border-bottom: 1px solid var(--color--primary);
+  transition: max-width 0.3s ease-in-out;
+}
+
+.nav__local:hover::after {
+  max-width: 200px;
 }
 
 @media screen and (max-width: 480px) {
@@ -246,7 +280,7 @@ button:hover {
 .featured {
   margin: 1em;
   margin-top: 2.5em;
-  background-image: radial-gradient(var(--color--primary) var(--radial--size), transparent var(--radial--size));
+  background-image: radial-gradient(var(--color--secondary) var(--radial--size), transparent var(--radial--size));
   background-size: calc(10 * var(--radial--size)) calc(10 * var(--radial--size));
 }
 
@@ -362,6 +396,10 @@ h2 .fas.fa-bookmark {
   margin: 0;
   padding: 0;
   /* color: var(--color--gray); */
+}
+
+.footer i {
+  transition: all 0.1s ease-in-out;
 }
 
 .footer p {
